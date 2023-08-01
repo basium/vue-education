@@ -20,7 +20,7 @@
             return {
                 name: this.$route.params.name,
                 onleave: this.$route.query.onleave==='true'?true:false,
-                isAdmin: this.$route.meta.isAdmin==='true'? true:false
+                isAdmin: this.$route.meta.isAdmin
             }
         }
     }

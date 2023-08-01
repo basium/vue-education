@@ -20,21 +20,21 @@ const routes = [
     path: '/Employee/:name',
     name: 'Employee',
     component:()=>import(/* webpackChunkName: "employee" */ '../views/Employee.vue'),
-    meta: { isAdmin : false}
+    meta: { isAdmin : true}
   },
   /* Route object converted to component props */
   {
     path : '/Cat/:name',
     name : 'Cat',
     component: ()=> import(/* webpackChunkName: "cat" */ '../views/Cat.vue'),
-    meta : { isNeutered: true },
+    meta : { isNeutered: false },
     props : route=>( {
       name : route.params.name,
       inside: route.query && route.query.inside==='true'? true : false,
-      neutered:route.meta.isNeutered==='true'? true: false
+      neutered:route.meta.isNeutered
     } )
   },
-  /* Catch an empty catPics route and show a random picture. */
+  /* Redirection example. Catch an empty catPics route and show a random picture. */
   {
     path:'/CatPics',
     redirect:'/CatPics/random'
@@ -51,7 +51,7 @@ const routes = [
     meta:{
       requiresResource : 'CatPics'
     },
-    beforeRouteEnter (to, from, next) {
+    beforeEnter (to, from, next) {
       // ...
     }
   },
