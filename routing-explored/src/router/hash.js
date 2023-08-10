@@ -9,7 +9,7 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  /*Laxy Loading Routes */
+  /*Lazy Loading Routes */
   {
     path: '/about',
     name: 'about',
